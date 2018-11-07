@@ -34,6 +34,10 @@
       min-height: 52px;
     }
 
+    .link-top-line {
+      display: flex; 
+    }
+
     .title.raw-link.raw-topic-link {
       display: block; // prevents wrapping on top of vote count
       padding: 0;
