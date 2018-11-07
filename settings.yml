@@ -1,0 +1,5 @@
+voting_categories:
+  type: list
+  default: 'voting-category'
+  description: 
+    en: 'Enter the slug of the voting category you wish to style with this theme component. The slug can be found in the category url: https://mysite.com/c/<b>voting-category</b>'

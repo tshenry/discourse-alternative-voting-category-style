@@ -1,0 +1,61 @@
+<script type="text/x-handlebars" data-template-name="/connectors/topic-list-before-status/vote-count.raw">
+    <a href="" class='vote-count-before-title'></a>
+</script>
+
+<script type="text/discourse-plugin" version="0.8">
+  var voteCatSlugs = settings.voting_categories.split("|");
+
+  api.modifyClass("component:topic-list", {
+    didInsertElement: function() {
+      this._super();
+
+      if (this.category) {
+        let currentCatSlug = this.category.slug;
+        $.each(voteCatSlugs, function(i, voteCatSlug) {
+          if (voteCatSlug == currentCatSlug) {
+            $(".list-container").addClass("voting-category");
+            return false;
+          }
+        });
+      }
+    }
+  });
+
+  api.modifyClass("component:topic-list-item", {
+    attributeBindings: ["data-topic-vote-count"],
+    "data-topic-vote-count": Em.computed.alias("topic.vote_count"),
+
+    unboundClassNames: Ember.computed(function() {
+      let classes = this._super();
+      let topic = this.attrs.topic;
+      if (topic.vote_count == null) {
+        classes += " about-topic";
+      }
+      return classes;
+    }),
+
+    didInsertElement: function() {
+      this._super();
+      var topic = this.attrs.topic;
+      if (topic.vote_count != null) {
+        $(function() {
+          let currentCatSlug = topic.category.slug;
+          $.each(voteCatSlugs, function(i, voteCatSlug) {
+            if (voteCatSlug == currentCatSlug) {
+              let $voteCount = $(".category-" + voteCatSlug + " [data-topic-id=" + topic.id + "] .vote-count-before-title");
+              //$voteCount.text(topic.vote_count);
+              $voteCount.attr({
+                href: "/t/" + topic.id,
+                "data-user-voted": topic.user_voted
+              });
+              if (topic.user_voted) {
+                $voteCount.attr("title", "You voted");
+              }
+              return false;
+            }
+          });
+        });
+      }
+    }
+  });
+</script>

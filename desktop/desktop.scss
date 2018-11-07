@@ -1,0 +1,86 @@
+@import "common/foundation/variables";
+
+.link-top-line .vote-count-before-title {
+  display: none;
+}
+
+.voting-category.list-container {
+  max-width: $small-width;
+  margin: 0 auto;
+
+  .posters,
+  .views,
+  .activity {
+    display: none;
+  }
+
+  td.posts:before {
+    content: "\f0e5";
+    font-family: FontAwesome;
+  }
+
+  [data-topic-vote-count]:before {
+    content: attr(data-topic-vote-count);
+    position: absolute;
+    margin-left: 1.85em;
+    margin-top: 2.35em;
+    font-size: $font-up-1;
+  }
+
+  .topic-list-item:not(.about-topic) {
+    td.main-link {
+      display: flex;
+      flex-direction: column;
+      min-height: 52px;
+    }
+
+    .title.raw-link.raw-topic-link {
+      display: block; // prevents wrapping on top of vote count
+      padding: 0;
+      margin-left: 65px;
+    }
+
+    .discourse-tags {
+      margin-left: 65px;
+
+      // Hide commma
+      .discourse-tag:after {
+        display: none;
+      }
+      .list-vote-count {
+        display: none;
+      }
+    }
+
+    .vote-count-before-title {
+      display: inline-block;
+      color: $primary;
+      padding: 10px 0;
+      border: 1px solid $primary-low;
+      border-radius: 5px;
+      text-align: center;
+      height: 30px;
+      width: 45px;
+      position: absolute;
+
+      &:before {
+        content: "\f0d8";
+        font-family: FontAwesome;
+        font-size: $font-up-6;
+        color: $primary-low;
+        display: block;
+        height: 40px;
+        margin-top: -25px;
+      }
+
+      &[data-user-voted="true"]:before {
+        color: $tertiary;
+      }
+    }
+
+    .topic-statuses {
+      position: absolute;
+      margin-left: 52px;
+    }
+  }
+}
