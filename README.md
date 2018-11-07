@@ -1,0 +1,1 @@
+# discourse-alternative-voting-category-style
