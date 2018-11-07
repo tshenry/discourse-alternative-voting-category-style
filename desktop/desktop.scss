@@ -84,6 +84,9 @@
 
     .topic-statuses {
       margin-left: 65px;
+      & + .title.raw-link.raw-topic-link {
+          margin: 0;
+      }
     }
   }
 }
