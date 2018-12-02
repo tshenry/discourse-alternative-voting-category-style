@@ -3,3 +3,8 @@ voting_categories:
   default: 'voting-category'
   description: 
     en: 'Enter the slug of the voting category you wish to style with this theme component. The slug can be found in the category url: https://mysite.com/c/<b>voting-category</b>'
+use_compact_width:
+  type: bool
+  default: true
+  description: 
+    en: 'Checking this setting will use a more compact view of the topic lists for the categories specified in the above setting.'
