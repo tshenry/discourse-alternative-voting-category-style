@@ -1,5 +1,9 @@
 <script type="text/x-handlebars" data-template-name="/connectors/topic-list-before-status/vote-count.raw">
-    <a href="" class='vote-count-before-title'></a>
+  <a href="" class='vote-count-before-title'>{{d-icon 'caret-up'}}</a>
+</script>
+
+<script type="text/x-handlebars" data-template-name="/connectors/topic-list-before-reply-count/comment-icon.raw">
+  {{d-icon 'far-comment'}}
 </script>
 
 <script type="text/discourse-plugin" version="0.8">
@@ -43,7 +47,6 @@
           $.each(voteCatSlugs, function(i, voteCatSlug) {
             if (voteCatSlug == currentCatSlug) {
               let $voteCount = $(".category-" + voteCatSlug + " [data-topic-id=" + topic.id + "] .vote-count-before-title");
-              //$voteCount.text(topic.vote_count);
               $voteCount.attr({
                 href: "/t/" + topic.id,
                 "data-user-voted": topic.user_voted
