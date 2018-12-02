@@ -5,7 +5,11 @@
 }
 
 .voting-category.list-container {
-  max-width: $small-width;
+  
+  @if $use_compact_width == "true" {
+    max-width: $small-width;
+  }
+  
   margin: 0 auto;
 
   .posters,
