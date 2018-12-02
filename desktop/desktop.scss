@@ -14,11 +14,6 @@
     display: none;
   }
 
-  td.posts:before {
-    content: "\f0e5";
-    font-family: FontAwesome;
-  }
-
   [data-topic-vote-count]:before {
     content: attr(data-topic-vote-count);
     position: absolute;
@@ -57,7 +52,8 @@
     }
 
     .vote-count-before-title {
-      display: inline-block;
+      display: flex;
+      justify-content: center;
       color: $primary;
       padding: 10px 0;
       border: 1px solid $primary-low;
@@ -67,17 +63,15 @@
       width: 45px;
       position: absolute;
 
-      &:before {
-        content: "\f0d8";
-        font-family: FontAwesome;
+      .svg-icon {
         font-size: $font-up-6;
         color: $primary-low;
         display: block;
         height: 40px;
-        margin-top: -25px;
+        margin-top: -18px;
       }
 
-      &[data-user-voted="true"]:before {
+      &[data-user-voted="true"] .svg-icon {
         color: $tertiary;
       }
     }
