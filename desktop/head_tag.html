@@ -32,8 +32,8 @@
     unboundClassNames: Ember.computed(function() {
       let classes = this._super();
       let topic = this.attrs.topic;
-      if (topic.vote_count == null) {
-        classes += " about-topic";
+      if (!topic.can_vote) {
+        classes += " non-voting";
       }
       return classes;
     }),
@@ -41,7 +41,7 @@
     didInsertElement: function() {
       this._super();
       var topic = this.attrs.topic;
-      if (topic.vote_count != null) {
+      if (topic.can_vote) {
         $(function() {
           let currentCatSlug = topic.category.slug;
           $.each(voteCatSlugs, function(i, voteCatSlug) {
@@ -51,6 +51,7 @@
                 href: "/t/" + topic.id,
                 "data-user-voted": topic.user_voted
               });
+              $voteCount.append('<span class="vote-count-value">' + topic.vote_count + '</span>');
               if (topic.user_voted) {
                 $voteCount.attr("title", "You voted");
               }
