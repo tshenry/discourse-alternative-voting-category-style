@@ -10,6 +10,7 @@
   var voteCatSlugs = settings.voting_categories.split("|");
 
   api.modifyClass("component:topic-list", {
+    pluginId: "discourse-alternative-voting-category-style",
     didInsertElement: function() {
       this._super();
 
@@ -26,6 +27,7 @@
   });
 
   api.modifyClass("component:topic-list-item", {
+    pluginId: "discourse-alternative-voting-category-style",
     attributeBindings: ["data-topic-vote-count"],
     "data-topic-vote-count": Em.computed.alias("topic.vote_count"),
 
