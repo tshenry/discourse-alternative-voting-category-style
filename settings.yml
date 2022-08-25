@@ -1,10 +1,21 @@
 voting_categories:
   type: list
-  default: 'voting-category'
+  list_type: category
+  default: ""
   description: 
-    en: 'Enter the slug of the voting category you wish to style with this theme component. The slug can be found in the category url: https://mysite.com/c/<b>voting-category</b>'
+    en: 'The above categories will have the styling applied'
 use_compact_width:
   type: bool
   default: true
   description: 
-    en: 'Checking this setting will use a more compact view of the topic lists for the categories specified in the above setting.'
+    en: 'Use a more compact view of the topic list for voting categories.'
+include_excerpts:
+  type: bool
+  default: false
+  description:
+    en: 'Include an excerpt of the original post of the topic in voting categories'
+vote_from_topic_list:
+  type: bool
+  default: false
+  description:
+    en: '(EXPERIMENTAL) Allow users to vote from the topic list of a voting category. Excerpts are automatically enabled'

@@ -1,0 +1,5 @@
+en:
+  user_vote: 'You voted for this topic. Select to remove vote.'
+  user_no_vote: 'Select to vote for this topic.'
+  closed: 'This topic is closed. Voting is no longer allowed.'
+  out_of_votes: 'You are out of votes. Remove an existing vote then try again.'

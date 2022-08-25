@@ -13,13 +13,18 @@
 
   .posters,
   .views,
-  .activity {
+  .activity,
+  .badge-wrapper {
     display: none;
   }
 
   .topic-list-item:not(.non-voting) {
-    &.pinned .topic-excerpt {
+    .link-bottom-line + .topic-excerpt {
       margin-left: 65px;
+      font-size: var(--font-down-2);
+      .topic-excerpt-more {
+        font-weight: bold;
+      }
     }
 
     td.main-link {
@@ -32,10 +37,6 @@
       display: flex;
     }
 
-    .link-bottom-line {
-      margin-left: 65px;
-    }
-
     .title.raw-link.raw-topic-link {
       display: block; // prevents wrapping on top of vote count
       padding: 0;
@@ -43,9 +44,14 @@
     }
 
     .discourse-tags {
-      // Hide commma
-      .discourse-tag:after {
-        display: none;
+      margin-left: 65px;
+
+      .discourse-tag {
+        margin: .35em 0;
+        // Hide commma
+        &:after {
+          display: none;
+        }
       }
       .list-vote-count {
         display: none;
@@ -72,10 +78,26 @@
         align-self: center;
         height: 40px;
         margin: -10px;
+        pointer-events: none;
       }
 
-      &[data-user-voted="true"] .svg-icon {
-        color: $tertiary;
+      .topic-list-vote-button {
+        @if $vote_from_topic_list == "false" {
+          cursor: default;
+        }
+        &:not(.can-vote) .svg-icon {
+          color: $tertiary;
+        }
+        &.disabled {
+          cursor: default;
+        }
+      }
+    }
+
+    &:not(.visited) {
+      .topic-list-vote-button {
+        cursor: default;
+        pointer-events: none;
       }
     }
 
