@@ -82,6 +82,8 @@
       }
 
       .topic-list-vote-button {
+        display: flex;
+        justify-content: center;
         @if $vote_from_topic_list == "false" {
           cursor: default;
         }

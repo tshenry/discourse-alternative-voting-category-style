@@ -35,7 +35,7 @@ export default EmberObject.extend({
   },
   @discourseComputed()
   votingDisabled() {
-    if((this.currentUser.votes_left <= 0 && !this.topic.user_voted) || this.topic.closed) {
+    if((this.currentUser?.votes_left <= 0 && !this.topic.user_voted) || this.topic.closed) {
       return "disabled";
     }
   },
@@ -49,7 +49,7 @@ export default EmberObject.extend({
       if(this.topic.closed) {
         return I18n.t(themePrefix("closed"));
       }
-      if(this.currentUser.votes_left <= 0 && !this.topic.user_voted) {
+      if(this.currentUser?.votes_left <= 0 && !this.topic.user_voted) {
         return I18n.t(themePrefix("out_of_votes"));
       }
       return this.topic.user_voted ? I18n.t(themePrefix("user_vote")) : I18n.t(themePrefix("user_no_vote"));
