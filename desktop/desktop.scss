@@ -62,9 +62,9 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
-      color: $primary;
+      color: var(--primary-high);
       padding: 10px 0;
-      border: 1px solid $primary-low;
+      border: 1px solid var(--primary-low);
       border-radius: 5px;
       text-align: center;
       height: 30px;
@@ -73,7 +73,7 @@
 
       .svg-icon {
         font-size: $font-up-6;
-        color: $primary-low;
+        color: var(--primary-low);
         display: flex;
         align-self: center;
         height: 40px;
@@ -88,7 +88,7 @@
           cursor: default;
         }
         &:not(.can-vote) .svg-icon {
-          color: $tertiary;
+          color: var(--tertiary);
         }
         &.disabled {
           cursor: default;
