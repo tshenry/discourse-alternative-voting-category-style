@@ -47,7 +47,7 @@
       margin-left: 65px;
 
       .discourse-tag {
-        margin: .35em 0;
+        margin: 0.35em 0;
         // Hide commma
         &:after {
           display: none;
@@ -93,13 +93,6 @@
         &.disabled {
           cursor: default;
         }
-      }
-    }
-
-    &:not(.visited) {
-      .topic-list-vote-button {
-        cursor: default;
-        pointer-events: none;
       }
     }
 
