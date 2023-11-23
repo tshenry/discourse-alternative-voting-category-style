@@ -37,6 +37,12 @@
       display: flex;
     }
 
+    .link-bottom-line {
+      .badge-category__wrapper {
+        display: none;
+      }
+    }
+
     .title.raw-link.raw-topic-link {
       display: block; // prevents wrapping on top of vote count
       padding: 0;
@@ -47,7 +53,7 @@
       margin-left: 65px;
 
       .discourse-tag {
-        margin: 0.35em 0;
+        margin: .35em .5em 0 0;
         // Hide commma
         &:after {
           display: none;
